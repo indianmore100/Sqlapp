@@ -1,6 +1,8 @@
 ﻿@model IEnumerable<Sqlapp.Models.Course>
 @using Microsoft.Extensions.Configuration
 @inject IConfiguration config
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Microsoft.FeatureManagement.AspNetCore
 @{
     ViewData["Title"] = "Home page";
 }
@@ -14,6 +16,12 @@
     <h1 class="display-4">This is a list of services of courses (by swapnil) Databse name:@config["demoapp:Settings:dbname"]</h1>
 
 </div>
+
+<feature name="staging">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Staging" asp-action="Index">Staging</a>
+    </li>
+</feature>
 
 <div>
     <table class="table" table-dark">

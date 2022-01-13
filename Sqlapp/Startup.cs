@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.FeatureManagement;
 using Sqlapp.Services;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace Sqlapp
         {
             // Ensure to add the services
             services.AddMvc();
+            services.AddFeatureManagement();
             services.AddTransient<CourseService>();
         }
 

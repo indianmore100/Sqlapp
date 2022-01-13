@@ -22,7 +22,8 @@ namespace Sqlapp
                 webBuilder.ConfigureAppConfiguration(config =>
                 {
                     var settings = config.Build();
-                    config.AddAzureAppConfiguration("Endpoint=https://appconfig0001.azconfig.io;Id=Nb32-l0-s0:k1pKUMrZZ8BnLZZ5YBcU;Secret=tGfUsAp9vEjDq+RKdO1bUTJUwPe0G1Fw3sF/Aug7eL0=");
+                    config.AddAzureAppConfiguration(options =>
+                     options.Connect("Endpoint=https://appconfig0001.azconfig.io;Id=Nb32-l0-s0:k1pKUMrZZ8BnLZZ5YBcU;Secret=tGfUsAp9vEjDq+RKdO1bUTJUwPe0G1Fw3sF/Aug7eL0=").UseFeatureFlags());
                 })
                    .UseStartup<Startup>());
     }
